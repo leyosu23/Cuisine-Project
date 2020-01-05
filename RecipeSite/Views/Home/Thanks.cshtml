@@ -1,0 +1,28 @@
+﻿@model AddRecipe
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+
+<div id="main">
+    <div id="first"></div>
+    <div id="second" class="jumbotron text-center">
+        <h3 class="display-3">Recipe Submitted</h3>
+        <p class="lead">
+            @if (Model.DifficultyLevel == "Hard")
+            {
+                @:Thank you for adding your fantastic recipe!!
+            }
+            else
+            {
+                @:Thank you for adding your fantastic recipe!!
+            }
+        </p>
+        <div>
+            <p>Click <a class="nav-link" asp-action="RecipeList">here</a> to see the list of recipes.</p>
+        </div>
+    </div>
+
+</div>
+

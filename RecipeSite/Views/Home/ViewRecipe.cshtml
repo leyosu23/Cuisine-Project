@@ -1,0 +1,88 @@
+﻿@model AddRecipe
+
+@{
+    ViewBag.Title = "View Recipe";
+}
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>RecipeID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.RecipeID</td>
+                </tr>
+            </tbody>
+
+            <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Name</td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th>Type of Cuisine</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Cuisine.CuisineType</td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th>Level Of Difficulty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.DifficultyLevel</td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th>Cooking Time (In Minutes)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.CookingTimeInMin</td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th>Ingredient</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.IngredientList</td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Description</td>
+                </tr>
+            </tbody>
+        </table>
+        <a asp-action="ReviewRecipe">Review Recipe</a>
+        <p>Click <a class="navbar-link" asp-action="Index">here</a> to go back to the Home Page</p>
+    </div>

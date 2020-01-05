@@ -1,0 +1,65 @@
+﻿.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+div {
+    position: relative;
+}
+
+#first {
+    background-image: url('../images/kitchen.jpg');
+    opacity: 0.4;
+    height: 1000px;
+    width: 2000px;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#second {
+    position: absolute;
+    top: 50px;
+    background-color: white;
+    margin-left: 150px;
+    margin-right: auto;
+    width: 80%;
+}
+
+table {
+    display: table;
+    margin: auto;
+    width: 100%
+}
+
+td {
+
+    border: 1px solid black;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.rating {
+    float: left;
+}

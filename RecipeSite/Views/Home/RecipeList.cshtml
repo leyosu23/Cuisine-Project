@@ -1,0 +1,49 @@
+﻿@model RecipeAndCuisineViewModel
+
+@{
+    ViewBag.Title = "Recipe List";
+}
+
+
+<div>
+    <div></div>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>List of Recipes</h4></div>
+        <div class="panel-body">
+            <div class="panel-body text-center">
+                <h3>List of Recipes that will turn your ordinary kitchen to the next level!</h3>
+                <table >
+                    <thead class="table table-hover">
+                        <tr class="table-info">
+                            <th scope="row">Recipe ID</th>
+                            <th scope="row">Name</th>
+                            <th scope="row">Type Of Cuisine</th>
+                            <th scope="row">Level Of Difficulty</th>
+                            <th scope="row">Cooking Time (In Minutes)</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        
+                        @foreach (AddRecipe r in Model.AddRecipes)
+                        {
+                            <tr>
+                                <td>@r.RecipeID</td>
+                                <td>@Html.ActionLink(r.Name, "ViewRecipe", new { id = r.RecipeID })</td>
+                                @foreach (Cuisine c in Model.Cuisines)
+                                {
+                                    @if (c.CuisineType == r.Cuisine.CuisineType)
+                                    {
+                                        <td>@c.CuisineType</td>
+                                    }
+                                }
+                                <td>@r.DifficultyLevel</td>
+                                <td>@r.CookingTimeInMin</td>
+                            </tr>
+                        }                        
+                    </tbody>
+                </table>
+                <p>Click <a class="navbar-link" asp-action="Index">here</a> to go back to the Home Page</p>
+            </div>
+        </div>
+    </div>
+</div>
+

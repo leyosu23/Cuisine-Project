@@ -1,0 +1,49 @@
+﻿@model AddRecipe
+
+@{ 
+    ViewBag.Title = "Edit Recipe";
+    Layout = "_AdminLayout";
+}
+
+    <form class="p-a-1" asp-action="Edit" method="post">
+        <div asp-validation-summary="All"></div>
+        <input type="hidden" asp-for="RecipeID" />
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <input class="form-control" asp-for="Name" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Cuisine.CuisineType"></label>
+            <div><span asp-validation-for="Cuisine.CuisineType" class="text-danger"></span></div>
+            <select asp-for="Cuisine.CuisineType" asp-items="@(new SelectList(ViewBag.listofitems, "CuisineType", "CuisineType"))"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="DifficultyLevel"></label>
+            <div><span asp-validation-for="DifficultyLevel" class="text-danger"></span></div>
+            <select class="form-control" asp-for="DifficultyLevel">
+                <option value="">Choose an option</option>
+                <option value="Easy">Easy</option>
+                <option value="Hard">Hard</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="CookingTimeInMin">Cooking Time (In Minutes)</label>
+            <div><span asp-validation-for="CookingTimeInMin" class="text-danger"></span></div>
+            <input class="form-control" asp-for="CookingTimeInMin" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IngredientList">Ingredient List</label>
+            <div><span asp-validation-for="IngredientList" class="text-danger"></span></div>
+            <input class="form-control" asp-for="IngredientList" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <div><span asp-validation-for="Description" class="text-danger"></span></div>
+            <input class="form-control" asp-for="Description" />
+        </div>
+        <div class="text-center">
+            <button class="btn-block btn-primary" type="submit">Save</button>
+            <button class="btn-block btn-secondary" asp-action="Index">Cancel</button>
+        </div>
+    </form>

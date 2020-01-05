@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap-lumen.min.css" />
+    <link rel="stylesheet" href="~/css/Style.css" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+    <div>
+        <img src="~/images/logo.png" alt="logo" width="500" height="85" />
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" asp-action="Index">Recipe Collection</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-action="CuisineIndex">List of Cuisine</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="bg-info p-2 row">
+            <div class="col">
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="col-2">
+                @if(User.Identity.IsAuthenticated)
+                {
+                    <a class="btn btn-sm btn-primary" asp-action="Logout" asp-controller="Account">Log Out</a>
+                }
+            </div>
+        </div>
+        @if (TempData["message"] != null)
+        {
+            <div class="alert alert-success mt-1">@TempData["message"]</div>
+        }
+        @RenderBody()
+    </div>
+</body>
+</html>

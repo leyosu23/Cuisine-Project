@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Cuisine>
+
+@{
+    ViewBag.Title = "Edit Recipe";
+    Layout = "_AdminLayout";
+}
+
+<table>
+    <thead class="table table-hover">
+        <tr class="table-info">
+            <th>Cuisine ID</th>
+            <th>Type Of Cuisine</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var r in Model)
+        {
+        <tr>
+            <td>@r.CuisineID</td>
+            <td>@r.CuisineType</td>
+            <td class="text-center">
+                <form asp-action="DeleteCuisine" method="post">
+                    <input type="hidden" name="cuisineId" value="@r.CuisineID" />
+
+                    <a asp-action="EditCuisine" class="btn btn-sm btn-warning" asp-route-cuisineId="@r.CuisineID">
+                        Edit
+                    </a>
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div cass="text-center float-center">
+    <a asp-action="CreateCuisine" class="btn btn-primary">Add Cuisine</a>
+</div>

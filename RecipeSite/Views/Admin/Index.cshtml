@@ -1,0 +1,53 @@
+﻿@model RecipeAndCuisineViewModel
+
+@{ 
+    ViewBag.Title = "All Recipes";
+    Layout = "_AdminLayout";
+}
+
+<table>
+    <thead class="table table-hover">
+        <tr class="table-info">
+            <th scope="row">Recipe ID</th>
+            <th scope="row">Name</th>
+            <th scope="row">Type Of Cuisine</th>
+            <th scope="row">Level Of Difficulty</th>
+            <th scope="row">Cooking Time (In Minutes)</th>
+            <th scope="row">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AddRecipe r in Model.AddRecipes)
+        {
+        <tr>
+            <td>@r.RecipeID</td>
+            <td>@r.Name</td>
+            @foreach (Cuisine c in Model.Cuisines)
+            {
+                @if (c.CuisineType == r.Cuisine.CuisineType)
+                {
+                    <td>@c.CuisineType</td>
+                }
+            }
+            <td>@r.DifficultyLevel</td>
+            <td>@r.CookingTimeInMin</td>
+            <td class="text-center">
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" name="recipeId" value="@r.RecipeID" />
+
+                    <a asp-action="Edit" class="btn btn-sm btn-warning" asp-route-recipeId="@r.RecipeID">
+                        Edit
+                    </a>
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div cass="text-center float-center">
+    <a asp-action="Create" class="btn btn-primary">Add Recipe</a>
+</div>
