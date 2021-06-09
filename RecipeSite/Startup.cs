@@ -50,7 +50,7 @@ namespace RecipeSite
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
             SeedData.EnsurePopulated(app);
-            //IdentitySeedData.EnsurePopulated(app);
+            IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

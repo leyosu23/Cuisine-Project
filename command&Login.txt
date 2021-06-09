@@ -1,0 +1,3 @@
+Update-database -Context AppIdentityDbContext
+Administrator
+Secret123$
